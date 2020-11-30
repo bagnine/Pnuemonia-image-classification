@@ -15,7 +15,8 @@ Subic](mailto:bagnine@gamil.com)
 ## Discussion and Conclusions
 
 ## Repository Structure
-.
+
+├── Index.ipynb
 ├── README.md
 ├── images
 ├── notebooks
