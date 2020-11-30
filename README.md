@@ -16,6 +16,7 @@ Subic](mailto:bagnine@gamil.com)
 
 ## Repository Structure
 
+```
 ├── Index.ipynb
 ├── README.md
 ├── images
@@ -25,4 +26,4 @@ Subic](mailto:bagnine@gamil.com)
 └── src
     ├── data
     └── modules
-
+```
