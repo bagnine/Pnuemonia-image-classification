@@ -111,9 +111,9 @@ def import_image_to_array(RELPATH,
                 centered_array = gray_resized_pil/255
                 
                 # append to the image_dict
-                flag = True
+                flag = 1
                 if sub_dir == 'NORMAL':
-                    flag = False
+                    flag = 0
                 
                 image_dict[name].append((centered_array, flag))
                 
