@@ -87,6 +87,7 @@ def import_image_to_array(
     the first index is the tf.array and the second is a boolian, True if class is pnuemonia, false otherwise.
     """
     # test relative path works!! 
+    import os
     PATH = os.getcwd() + RELPATH
     
     try:
