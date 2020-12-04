@@ -28,7 +28,7 @@ def import_image(PATH, image_name):
     # load file and return pil
     return image.load_img(img_path) 
 
-def grayscale_and_resize(PIL, shape=(255,256), padding=False):
+def grayscale_and_resize(PIL, shape=(256,256), padding=False, grayscale=True):
     """
     This is the preprocessing function that will take the raw jpeg, gray scale it, resize it and 
     turn it into an array
@@ -42,7 +42,10 @@ def grayscale_and_resize(PIL, shape=(255,256), padding=False):
         gray_image = rgb_to_grayscale(PIL)
         resized_image_arr = resize_with_pad(gray_image, target_height=shape[0], target_width=shape[1])
     else:
-        resized_image_arr = img_to_array(PIL.convert(mode = 'L').resize(shape))
+        if grayscale:
+            resized_image_arr = img_to_array(PIL.convert(mode = 'L').resize(shape))
+        else:
+            resized_image_arr = img_to_array(PIL.resize(shape))
     
     return resized_image_arr
 
