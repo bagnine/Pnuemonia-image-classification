@@ -42,10 +42,10 @@ It's impossible for us to talk about image classfication tasks, particularly whe
 ### Densenet Archetecture, an unconventional take on image classification.
 ![img](./images/densenet.png)
 
-As we were learning about image classfication, we continuously read that convolutions were king. This made sense. A sliding filter that could pick out features in in the image via [convolutions](https://en.wikipedia.org/wiki/Convolution#Visual_explanation)l. However, we saw Densenet, an almost entriely connected network, outperform primarily convolutional neural networks. Indeed, in the present study, we found < insert differences between vgg16 and densenet performance here >. In light of the performance, we included in Densenet in our stacked classifier.
-
-
 image source: [Hashmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417)
+
+
+As we were learning about image classfication, we continuously read that convolutions were king. This made sense. A sliding filter that could pick out features in in the image via [convolutions](https://en.wikipedia.org/wiki/Convolution#Visual_explanation)l. However, we saw Densenet, an almost entriely connected network, outperform primarily convolutional neural networks. Indeed, in the present study, we found < insert differences between vgg16 and densenet performance here >. In light of the performance, we included in Densenet in our stacked classifier.
 
 
 ### Mobilenet, a light weight multipurpose image recognition archetecture
