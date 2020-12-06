@@ -9,6 +9,11 @@ Subic](mailto:bagnine@gmail.com)
 
 ## Overview
 
+Summary of key findings:
+- Accuracy:
+- Recall: 
+- AUC:
+
 ## Business Problem
 
 As health systems across the United States have become overwhelmed in the past year, the need to streamline and triage medical examinations has become more apparent than ever. Pneumonia remains one of the most frequent causes of death, and diagnosing it quickly can determine whether treatment is successful.
