@@ -29,7 +29,15 @@ For preprocessing, we resized each image to 224x224 pixels and ran models both a
 
 We created a convoluted neural network consisting of 8 alternating convolution and max pooling layers, followed by a flattening layer and 3 densely connected layers interspersed with regularization layers. Using our target metric- Recall- along with Accuracy and AUC we were able to tune our model to avoid over predicting pneumonia while still avoiding a potentially life-threatening false negative. 
 
+![img](./images/vgg16.png)
+
+![img](./images/densenet.png)
+
+![img](./images/mobilenet.png)
+
 For further analysis, we looked at (insert conclusions about false positives, false negatives here- this needs more in depth analysis)
+
+
 
 ## Results
 
