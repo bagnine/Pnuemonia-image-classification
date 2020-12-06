@@ -1,5 +1,5 @@
 
-# Title of the Project 
+# Using Stacked Classification to Identify Pnuemonia From Chest X-ray Images 
 **Authors**: [Tim Hintz](mailto:tjhintz@gmail.com), [Nick
 Subic](mailto:bagnine@gmail.com)
 
