@@ -46,7 +46,9 @@ image source: [Hasmi et al., 2020: Efficient Pneumonia Detection in Chest Xray I
 ![img](./images/mobilenet.png)
 
 
-image source: (Hasmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning)[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417]
+
+image source: [Hasmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417)
+
 
 MobilenetV2 ustilizes [depth-wise convolutions](https://medium.com/@zurister/depth-wise-convolution-and-depth-wise-separable-convolution-37346565d4ec) to and linear bottlenecks between convolution blocks to maximise classification on RGB images. We selected this archetecture because it had previously been used very effectively in this classfication task, it took the same dimensional input as vgg16 and it's archetecture was intrigueing to us. 
 
