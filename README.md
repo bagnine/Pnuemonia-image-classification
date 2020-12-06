@@ -1,5 +1,8 @@
 
-# Using Stacked Classification to Identify Pnuemonia From Chest X-ray Images 
+# Identifying Pnuemonia From Chest X-ray Images 
+### Using stacked classification and transfer learning to implement triage
+
+
 **Authors**: [Tim Hintz](mailto:tjhintz@gmail.com), [Nick
 Subic](mailto:bagnine@gmail.com)
 
