@@ -39,7 +39,7 @@ image [source](https://neurohive.io/en/popular-networks/vgg16/)
 ![img](./images/densenet.png)
 
 
-image source: (Hasmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning)[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417]
+image source: [Hasmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417)
 
 
 ### Mobilenet, a light weight multipurpose image recognition archetecture
