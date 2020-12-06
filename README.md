@@ -31,6 +31,29 @@ The set is split into three groups-
 2. A test set consisting of 624 images, 390 with pneumonia and 234 healthy
 3. A validation set consisting of 16 images, with 8 each with pneumonia and healthy
 
+
+We addressed class imbalance via image augmentation and weighting each class by their inverse frequency. However, image augmentation did not perform as well as class weighting so we only used class weighting in our final models.
+
+
+![img](./images/classimbalance.png)
+
+
+Looking at 3 examples from each class, the differences are subtle. But we hope that by then end of this section you will be able to accurately identify pneumonia chest x-rays from normal ones. Pay close attention to the definition of the chest cavity in Normal images and the blurred lung area in pneumonia patients
+
+![img](./images/normVSpneu.png)
+
+
+If we compare the mean pixel intensity between the two groups, where a higher value here represents a higher average pixel intensity in pneumonia chest x-rays, we can see that on average, pneumonia images have far brighter lungs. This is due to scarificaton and fluid build up in the lungs due to the infection.
+
+![img](./images/averageDifference.png)
+
+
+Now that we have developed some intuition where the images are most different from eachother, let's look at how much interclass difference there is. To do this, we looked at the standard deviation for pixel intensity for each class and then, similar to before, we fond the difference between the two and plotted it.
+
+![img](./images/standardDiff.png)
+
+
+
 ## Methodology
 
 For preprocessing, we resized each image to 224x224 pixels and ran models both after converting them to greyscale and as a 3d tensor array.  We calculated the inverse frequency of each class in our training data to use as class weights in our models. 
