@@ -45,7 +45,7 @@ It's impossible for us to talk about image classfication tasks, particularly whe
 As we were learning about image classfication, we continuously read that convolutions were king. This made sense. A sliding filter that could pick out features in in the image via [convolutions](https://en.wikipedia.org/wiki/Convolution#Visual_explanation)l. However, we saw Densenet, an almost entriely connected network, outperform primarily convolutional neural networks. Indeed, in the present study, we found < insert differences between vgg16 and densenet performance here >. In light of the performance, we included in Densenet in our stacked classifier.
 
 
-image source: [Hasmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417)
+image source: [Hashmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417)
 
 
 ### Mobilenet, a light weight multipurpose image recognition archetecture
@@ -53,7 +53,7 @@ image source: [Hasmi et al., 2020: Efficient Pneumonia Detection in Chest Xray I
 
 
 
-image source: [Hasmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417)
+image source: [Hashmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417)
 
 
 MobilenetV2 ustilizes [depth-wise convolutions](https://medium.com/@zurister/depth-wise-convolution-and-depth-wise-separable-convolution-37346565d4ec) and linear bottlenecks between convolution blocks to maximise classification on RGB images. We selected this archetecture because it had previously been used very effectively in this classfication task, it took the same dimensional input as vgg16 and it's archetecture was intrigiung to us. 
