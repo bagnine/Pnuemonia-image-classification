@@ -29,11 +29,21 @@ For preprocessing, we resized each image to 224x224 pixels and ran models both a
 
 We created a convoluted neural network consisting of 8 alternating convolution and max pooling layers, followed by a flattening layer and 3 densely connected layers interspersed with regularization layers. Using our target metric- Recall- along with Accuracy and AUC we were able to tune our model to avoid over predicting pneumonia while still avoiding a potentially life-threatening false negative. 
 
+### vgg16, make it Alexnet but better
 ![img](./images/vgg16.png)
+image [source](https://neurohive.io/en/popular-networks/vgg16/)
 
+### Densenet Archetecture, an unconventional take on image classification.
 ![img](./images/densenet.png)
+image source: (Hasmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning)[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417]
 
+
+### Mobilenet, a light weight multipurpose image recognition archetecture
 ![img](./images/mobilenet.png)
+image source: (Hasmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning)[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417]
+
+MobilenetV2 ustilizes [depth-wise convolutions](https://medium.com/@zurister/depth-wise-convolution-and-depth-wise-separable-convolution-37346565d4ec) to and linear bottlenecks between convolution blocks to maximise classification on RGB images. We selected this archetecture because it had previously been used very effectively in this classfication task, it took the same dimensional input as vgg16 and it's archetecture was intrigueing to us. 
+
 
 For further analysis, we looked at (insert conclusions about false positives, false negatives here- this needs more in depth analysis)
 
