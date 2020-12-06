@@ -29,14 +29,20 @@ For preprocessing, we resized each image to 224x224 pixels and ran models both a
 
 We created a convoluted neural network consisting of 8 alternating convolution and max pooling layers, followed by a flattening layer and 3 densely connected layers interspersed with regularization layers. Using our target metric- Recall- along with Accuracy and AUC we were able to tune our model to avoid over predicting pneumonia while still avoiding a potentially life-threatening false negative. 
 
-### vgg16, make it Alexnet but better
+### VGG16: make it Alexnet, but better
 ![img](./images/vgg16.png)
 
 
 image [source](https://neurohive.io/en/popular-networks/vgg16/)
 
+
+It's impossible for us to talk about image classfication tasks, particularly when it comes to transfer learning, without paying respect to Alexnet. Alexnet was really the first model that took advantage of GPU processing to implement a deep learning task. VGG16 replaces so of Alexnets enormous central kernel filters and replaces them with multiple streamlined 3x3 filters (see image). This model is a pain to train even with transfer learning due to it's size (with weights and nodes ~500mb). But yeilded amazing results in our use case.
+
+
 ### Densenet Archetecture, an unconventional take on image classification.
 ![img](./images/densenet.png)
+
+As we were learning about image classfication, we continuously read that convolutions were king. This made sense. A sliding filter that could pick out features in in the image via [convolutions](https://en.wikipedia.org/wiki/Convolution#Visual_explanation)l. However, we saw Densenet, an almost entriely connected network, outperform primarily convolutional neural networks. Indeed, in the present study, we found < insert differences between vgg16 and densenet performance here >. In light of the performance, we included in Densenet in our stacked classifier.
 
 
 image source: [Hasmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417)
@@ -50,7 +56,7 @@ image source: [Hasmi et al., 2020: Efficient Pneumonia Detection in Chest Xray I
 image source: [Hasmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417)
 
 
-MobilenetV2 ustilizes [depth-wise convolutions](https://medium.com/@zurister/depth-wise-convolution-and-depth-wise-separable-convolution-37346565d4ec) to and linear bottlenecks between convolution blocks to maximise classification on RGB images. We selected this archetecture because it had previously been used very effectively in this classfication task, it took the same dimensional input as vgg16 and it's archetecture was intrigueing to us. 
+MobilenetV2 ustilizes [depth-wise convolutions](https://medium.com/@zurister/depth-wise-convolution-and-depth-wise-separable-convolution-37346565d4ec) and linear bottlenecks between convolution blocks to maximise classification on RGB images. We selected this archetecture because it had previously been used very effectively in this classfication task, it took the same dimensional input as vgg16 and it's archetecture was intrigiung to us. 
 
 
 For further analysis, we looked at (insert conclusions about false positives, false negatives here- this needs more in depth analysis)
