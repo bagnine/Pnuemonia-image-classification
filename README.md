@@ -79,6 +79,10 @@ Recall: 0.9769
 
 Auc: 0.8848
 
+![img](./images/homemadeconf.png)
+
+![img](./images/homemaderoc.png)
+
 ### VGG16: Make it AlexNet, but better
 ![img](./images/vgg16.png)
 
