@@ -1,6 +1,6 @@
 
 # Identifying Pnuemonia From Chest X-ray Images 
-### Using ensemble classification and transfer learning to implement pneuomonia triage
+### Using ensemble classification and transfer learning to implement pneumonia triage
 
 
 **Authors**: [Tim Hintz](mailto:tjhintz@gmail.com), [Nick
