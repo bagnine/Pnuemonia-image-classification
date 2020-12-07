@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 import seaborn as sns
 from sklearn.metrics import roc_curve, auc
+import numpy as np
+from tensorflow.keras.preprocessing import image
 
 def plot_loss(history):
     '''Takes in a cnn model history file with metrics set to AUC, Recall and Accuracy and 
@@ -176,4 +178,13 @@ def see_false_positives(image_dict, y_hat, PATH="./src/data/x_ray/NORMAL/", shap
     # display 6 random false positives 
     display_bv_images(image_list, PATH, shape=shape)
     
-    
+ #================================= Predictions and Confusion Matrix ================================================
+
+def get_labels(fit_model, X, threshold):
+    return [1 if x >= threshold else 0 for x in fit_model.predict(X)]
+
+def get_true_positive(true, prediction):
+    return [1 if (x == 1 and y == 1) else 0 for x,y in zip(true,prediction)]
+
+def get_false_negative(true, prediction):
+    return [1 if (x == 1 and y == 0) else 0 for x,y in zip(true,prediction)]   
