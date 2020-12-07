@@ -115,6 +115,8 @@ Auc: 0.8848
 
 ![img](./images/homemaderoc.png)
 
+Our homemade model had good recall but was far to sensitive. Having 122 false positives would do little to ease congestion of health care workers. The specificty of this model was 0.5. Since computing time was a limiting factor in our project, we set out to utilize pre trained models to improve our accuracy. 
+
 ### Vgg16
 
 Vgg16 was our largest model by far. It took 3x the time to converge. After regularizing the dense connections using dropout, we acheived:
