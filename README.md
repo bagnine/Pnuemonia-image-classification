@@ -81,7 +81,7 @@ image [source](https://neurohive.io/en/popular-networks/vgg16/)
 It's impossible for us to talk about image classfication tasks, particularly when it comes to transfer learning, without paying respect to AlexNet. AlexNet was really the first model that took advantage of GPU processing to implement a deep learning task. VGG16 replaced Alexnets enormous central kernel filters with multiple streamlined 3x3 filters (see image). This model is a pain to train even with transfer learning due to it's size (with weights and nodes the model size was  ~500mb). However, VGG16 yeilded amazing results in our use case.
 
 
-### Densenet121 Archetecture, an unconventional take on image classification.
+### Densenet121 Architecture, an unconventional take on image classification.
 ![img](./images/densenet.png)
 
 image source: [Hashmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417)
