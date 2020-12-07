@@ -167,11 +167,11 @@ AUC: 0.9691
 
 We are happy with the results of our model given the 1 week time constraint we were under. However, from reading the literature, using an optimiser with an adaptive leraning rate does not always give the best results. It does speed up the time to converge, but can also lead get trapped in local minima.
 
-Therefore, if we had more time and access to more powerful computers, we would use stochastic gradient descent with a very low learning rate (alpha ~ 0.0001). 
+Therefore, if we had more time and access to more powerful computers, we would use stochastic gradient descent with a very low learning rate (alpha ~ 0.0001) with learning decay rate of 10 epochs and run 100 epochs per model. 
 
 In addition, we would like to train a multiclassfication model. The positive class has both viral and bacterial pneumonia cases. We understand tht bacterial cases are often more sever. Therefore we would like to indicate whether a particular infection is bacterial or viral.
 
-Finally, though here we used a voting classifier, we are interested in building a stacked classifier that uses backpropagation to assign weights to the output of each model in the classifir.
+Finally, here we used wrote a soft voting classifier simililar to the scikit learn implementation in the future  we are interested in building a stacked classifier that uses backpropagation to assign weights to the output of each model in the classifir.
 
 
 ## Repository Structure
