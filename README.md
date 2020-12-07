@@ -15,8 +15,11 @@ We build a light-weight, ensemble, voting classifier using 3 transfer learning m
 
 Summary of key findings:
 - Accuracy:
+
 - Recall: 
+
 - AUC:
+
 
 ## Healthcare Problem
 
@@ -101,39 +104,41 @@ MobilenetV2 ustilizes [depth-wise convolutions](https://medium.com/@zurister/dep
 
 Vgg16 was our largest model by far. It took 3x the time to converge. After regularizing the dense connections using dropout, we acheived:
 
-Accuracy: 
-Recall: 
-AUC:
+Accuracy: 0.8830
+
+Recall: 0.9897
+
+AUC: 0.9480
 
 ### Densenet121
 
 Considering this model was unconventional for image classification we were surprised that it worked so efffectively in our use case:
 
-Accuracy:
+Accuracy: 0.8734 
 
-Recall:
+Recall: 0.9923
 
-AUC:
+AUC: 0.9044
 
 ### MobileNetV2 
 
 Our fastest model was less effective overall but could be deployed on older, less powerful computers so we were very pleased with the results:
 
-Accuracy:
+Accuracy: 0.8814
 
-Recall:
+Recall: 0.9795
 
-AUC
+AUC: 0.9485
 
 ### Ensemble Voting Classfier
 
 We used soft voting between our three models and after experimenting, we optimised the probability threshold to be 0.65 from 0.5 which increased our accuracy to 0.90 from 0.87 and didn't decrease our recall.
 
-Accuracy:
+Accuracy: 0.9038
 
-Recall:
+Recall: 0.9897
 
-AUC:
+AUC: 0.8752
 
 ![img](./images/ensemblecmatrix.png)
 
