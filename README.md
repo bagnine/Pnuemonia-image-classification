@@ -70,6 +70,15 @@ We used an Adam classifer which uses an adaptive learning rate with stochastic g
 
 We created a convoluted neural network consisting of 8 alternating convolution and max pooling layers, followed by a flattening layer and 3 densely connected layers interspersed with regularization layers. Using our target metric- Recall- along with Accuracy and AUC we were able to tune our model to avoid over predicting pneumonia while still avoiding a potentially life-threatening false negative. 
 
+
+### Homemade CNN
+
+Accuracy: 0.7901
+
+Recall: 0.9769
+
+Auc: 0.8848
+
 ### VGG16: Make it AlexNet, but better
 ![img](./images/vgg16.png)
 
