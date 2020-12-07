@@ -11,7 +11,7 @@ Subic](mailto:bagnine@gmail.com)
 
 ## Overview
 
-We built a light-weight, ensemble, voting-classifier using 3 transfer learning models (VGG16, DenseNet121, MobileNetV2) to predict the presence of pneumonia from x-rays of childrens (age 1-5) chests. 
+We built a light-weight, ensemble, voting-classifier using 3 transfer learning models (VGG16, DenseNet121, MobileNetV2) to predict the presence of pneumonia from x-rays of childrens (age 1-5) chests. Given the use case, we optimised for both recall and accuracy. we optimised recall was to minimise the number of lethal false negtives, but we also wanted to insure that medical professionals weren't being inundated with false positives.
 
 Summary of key findings:
 - Accuracy: 0.9038
@@ -81,13 +81,13 @@ image [source](https://neurohive.io/en/popular-networks/vgg16/)
 It's impossible for us to talk about image classfication tasks, particularly when it comes to transfer learning, without paying respect to AlexNet. AlexNet was really the first model that took advantage of GPU processing to implement a deep learning task. VGG16 replaced Alexnets enormous central kernel filters with multiple streamlined 3x3 filters (see image). This model is a pain to train even with transfer learning due to it's size (with weights and nodes the model size was  ~500mb). However, VGG16 yeilded amazing results in our use case.
 
 
-### Densenet121 Archetecture, an unconventional take on image classification.
+### Densenet121 Architecture, an unconventional take on image classification.
 ![img](./images/densenet.png)
 
 image source: [Hashmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417)
 
 
-As we were learning about image classfication, we continuously read that convolutions were king. This made sense. A sliding filter that could pick out features in in the image via [convolutions](https://en.wikipedia.org/wiki/Convolution#Visual_explanation)l. However, we saw Densenet, an almost entriely densley connected network, outperform primarily convolutional neural networks. Indeed, in the present study, we found that of the three models we tested, Densenet121 performed the best. In light of the performance, we included in Densenet in our stacked classifier.
+As we were learning about image classfication, we continuously read that convolutions were king. This made sense. A sliding filter that could pick out features in in the image via [convolutions](https://en.wikipedia.org/wiki/Convolution#Visual_explanation)l. However, we saw [Densenet](https://towardsdatascience.com/understanding-and-visualizing-densenets-7f688092391a), an almost entriely densley connected network, outperform primarily convolutional neural networks. Indeed, in the present study, we found that of the three models we tested, Densenet121 performed the best. In light of the performance, we included in Densenet in our stacked classifier.
 
 
 ### Mobilenet, a light weight multipurpose image recognition architecture
