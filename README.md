@@ -14,11 +14,13 @@ Subic](mailto:bagnine@gmail.com)
 We build a light-weight, ensemble, voting classifier using 3 transfer learning models to predict the presence of pneumonia from x-rays of childrens chest ages 1-5. 
 
 Summary of key findings:
-- Accuracy:
+- Accuracy: 0.9038
 
-- Recall: 
+- Recall: 0.9897
 
-- AUC:
+- AUC: 0.8752
+
+![img](./images/roccurve.png)
 
 
 ## Healthcare Problem
