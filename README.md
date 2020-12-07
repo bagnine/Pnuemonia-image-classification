@@ -1,26 +1,29 @@
 
 # Identifying Pnuemonia From Chest X-ray Images 
-### Using stacked classification and transfer learning to implement triage
+### Using ensemble classification and transfer learning to implement pneuomonia triage
 
 
 **Authors**: [Tim Hintz](mailto:tjhintz@gmail.com), [Nick
 Subic](mailto:bagnine@gmail.com)
 
 
+![img](./images/doctor-research-jpeg)
+
 ## Overview
+
+We build a light-weight, ensemble, voting classifier using 3 transfer learning models to predict the presence of pneumonia from x-rays of childrens chest ages 1-5. 
 
 Summary of key findings:
 - Accuracy:
 - Recall: 
 - AUC:
 
-## Business Problem
+## Healthcare Problem
 
-As health systems across the United States have become overwhelmed in the past year, the need to streamline and triage medical examinations has become more apparent than ever. Pneumonia remains one of the most frequent causes of death, and diagnosing it quickly can determine whether treatment is successful.
+Pneumonia is the leading cause of death among children across the globe. Pneumonia is a respiratory disease of the lungs usually caused by viral or bacterial infections. The World Health Organization estimated that in 2017 pneuomonia killed 800,000 children under the age of five, or 15% of all deaths of children in that age range. In addition, epidemiologists suggest that of the children that die of pneumonia every year, 45% of those are due to poor living conditions, specifically air quality. Since air quality has been linked to socioeconomic status, the present study built a statistical model using convolutional neural networks in order to aid in the diagnosis of pneumonia. 
 
-In order to expedite identifying diagnosable signs of pneumonia, we are developing a model which can accurately examine a radiograph for likely areas of lung congestion. Though our model does not offer the in-depth analysis that a radiographer can use in assessing the overall health of a patient or identifying non-pneumonia related health issues, it can quickly assess the presence of bacterial or viral pneumonia from a chest x-ray. 
+X-rays are a widely accessible imaging technique used to diagnose pneumonia but a lot of trianing is required for a medical professional to reliably diagnose the disase. We were able to run our nerual network on a relatively low powered 2018 MacBook Air. We propose that implementing rapid image classification in low income communities could aid medical professionals in better allocating their time and resources.
 
-We hope that this implementation can lead to quicker diagnosis as well as a reduced burden on medical staff as they work to give the best possible treatment to growing numbers of patients. 
 
 ## Data
 
@@ -58,6 +61,8 @@ Now that we have developed some intuition where the images are most different fr
 
 For preprocessing, we resized each image to 224x224 pixels and ran models both after converting them to greyscale and as a 3d tensor array.  We calculated the inverse frequency of each class in our training data to use as class weights in our models. 
 
+We used an Adam classifer which uses an adaptive learning rate with stochastic gradient descent. 
+
 We created a convoluted neural network consisting of 8 alternating convolution and max pooling layers, followed by a flattening layer and 3 densely connected layers interspersed with regularization layers. Using our target metric- Recall- along with Accuracy and AUC we were able to tune our model to avoid over predicting pneumonia while still avoiding a potentially life-threatening false negative. 
 
 ### VGG16: make it Alexnet, but better
@@ -76,7 +81,7 @@ It's impossible for us to talk about image classfication tasks, particularly whe
 image source: [Hashmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417)
 
 
-As we were learning about image classfication, we continuously read that convolutions were king. This made sense. A sliding filter that could pick out features in in the image via [convolutions](https://en.wikipedia.org/wiki/Convolution#Visual_explanation)l. However, we saw Densenet, an almost entriely connected network, outperform primarily convolutional neural networks. Indeed, in the present study, we found < insert differences between vgg16 and densenet performance here >. In light of the performance, we included in Densenet in our stacked classifier.
+As we were learning about image classfication, we continuously read that convolutions were king. This made sense. A sliding filter that could pick out features in in the image via [convolutions](https://en.wikipedia.org/wiki/Convolution#Visual_explanation)l. However, we saw Densenet, an almost entriely densley connected network, outperform primarily convolutional neural networks. Indeed, in the present study, we found that of the three models we tested, Densenet121 performed the best. In light of the performance, we included in Densenet in our stacked classifier.
 
 
 ### Mobilenet, a light weight multipurpose image recognition archetecture
@@ -87,16 +92,52 @@ As we were learning about image classfication, we continuously read that convolu
 image source: [Hashmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417)
 
 
-MobilenetV2 ustilizes [depth-wise convolutions](https://medium.com/@zurister/depth-wise-convolution-and-depth-wise-separable-convolution-37346565d4ec) and linear bottlenecks between convolution blocks to maximise classification on RGB images. We selected this archetecture because it had previously been used very effectively in this classfication task, it took the same dimensional input as vgg16 and it's archetecture was intrigiung to us. 
-
-
-For further analysis, we looked at (insert conclusions about false positives, false negatives here- this needs more in depth analysis)
-
+MobilenetV2 ustilizes [depth-wise convolutions](https://medium.com/@zurister/depth-wise-convolution-and-depth-wise-separable-convolution-37346565d4ec) and linear bottlenecks between convolution blocks to maximise classification on RGB images. We selected this archetecture because it had previously been used very effectively in this classfication task, it took the same dimensional input as vgg16 and densenet121 but also it is very lightweight. Initially being designed to run on mobile devices, we wanted to use a model that, by itself could have accuracy, recall and also run on low powered computers.
 
 
 ## Results
 
+### Vgg16
+
+Vgg16 was our largest model by far. It took 3x the time to converge. After regularizing the dense connections using dropout, we acheived:
+
+Accuracy: 
+Recall: 
+AUC:
+
+### Densenet121
+
+Considering this model was unconventional for image classification we were surprised that it worked so efffectively in our use case:
+
+Accuracy
+Recall:
+AUC:
+
+### MobileNetV2 
+
+Our fastest model was less effective overall but could be deployed on older, less powerful computers so we were very pleased with the results:
+
+Accuracy:
+Recall:
+AUC
+
+### Ensemble Voting Classfier
+
+We used soft voting between our three models and after experimenting, we optimised the probability threshold to be 0.65 from 0.5 which increased our accuracy to 0.90 from 0.87 and didn't decrease our recall.
+
+Accuracy:
+Recall:
+AUC:
+
+![img](./images/ensemblecmatrix.png)
+
+
+![img](./images/roccurve.png)
+
+
 ## Discussion and Conclusions
+
+We are happy with the results of our model given the 1 week time constraint we were under. However, from reading the literature, using an 
 
 ## Repository Structure
 
