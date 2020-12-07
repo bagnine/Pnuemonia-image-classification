@@ -7,7 +7,7 @@
 Subic](mailto:bagnine@gmail.com)
 
 
-![img](./images/doctor-research-jpeg)
+![img](./images/doctor-research.jpg)
 
 ## Overview
 
