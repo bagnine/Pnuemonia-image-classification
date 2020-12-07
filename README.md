@@ -11,7 +11,7 @@ Subic](mailto:bagnine@gmail.com)
 
 ## Overview
 
-We built a light-weight, ensemble, voting-classifier using 3 transfer learning models (VGG16, DenseNet121, MobileNetV2) to predict the presence of pneumonia from x-rays of childrens (age 1-5) chests. 
+We built a light-weight, ensemble, voting-classifier using 3 transfer learning models (VGG16, DenseNet121, MobileNetV2) to predict the presence of pneumonia from x-rays of childrens (age 1-5) chests. Given the use case, we optimised for both recall and accuracy. we optimised recall was to minimise the number of lethal false negtives, but we also wanted to insure that medical professionals weren't being inundated with false positives.
 
 Summary of key findings:
 - Accuracy: 0.9038
