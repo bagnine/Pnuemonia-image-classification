@@ -27,7 +27,7 @@ def image_to_matrix(path, list_of_filename, size = (64, 64)):
             full_mat = img_ts
     return full_mat
 
-def find_mean_img(full_mat, title, size = (64, 64), save_img=False, img_dir=img_PATH):
+def find_mean_img(full_mat, title, size = (64, 64), save_img=False, img_dir=None):
     # calculate the average
     mean_img = np.mean(full_mat, axis = 0) 
     # reshape it back to a matrix
@@ -41,7 +41,7 @@ def find_mean_img(full_mat, title, size = (64, 64), save_img=False, img_dir=img_
     return mean_img
 
 
-def find_var_img(full_mat, title, size = (64, 64), save_img=False, img_dir=img_PATH):
+def find_var_img(full_mat, title, size = (64, 64), save_img=False, img_dir=None):
     # calculate the average
     std_img = (np.std(full_mat, axis = 0))**1.1
     # reshape it back to a matrix
