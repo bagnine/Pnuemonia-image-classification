@@ -1,5 +1,5 @@
 
-# Identifying Pnuemonia From Chest X-ray Images 
+# Identifying Pneumonia From Chest X-ray Images 
 ### Using ensemble classification and transfer learning to implement pneumonia triage
 
 
