@@ -66,9 +66,9 @@ Now that we have developed some intuition where the images are most different fr
 
 For preprocessing, we resized each image to 224x224 pixels and ran models both after converting them to greyscale and as a 3d tensor array.  We calculated the inverse frequency of each class in our training data to use as class weights in our models. 
 
-We used an Adam classifer which uses an adaptive learning rate with stochastic gradient descent. 
+We used an Adam optimizer which uses an adaptive learning rate with stochastic gradient descent. We chose to use it because of its speed training and evaluating new models, but given more time would switch to an SGD optimizer with step decay in the learning rate.
 
-We created a convoluted neural network consisting of 8 alternating convolution and max pooling layers, followed by a flattening layer and 3 densely connected layers interspersed with regularization layers. Using our target metric- Recall- along with Accuracy and AUC we were able to tune our model to avoid over predicting pneumonia while still avoiding a potentially life-threatening false negative. 
+We created a convoluted neural network consisting of 8 alternating convolution and max pooling layers, followed by a flattening layer and 3 densely connected layers interspersed with regularization layers to reduce overfit. We chose Recall as our target metric to avoid potentially deadly false negatives, but because of the class imbalance our early models were able to achieve 100% recall, albeit with 100s of false positives. As we continued to develop our models, we added Accuracy and AUC in order to reduce false positives and produce an overall better model. 
 
 
 ### VGG16: Make it AlexNet, but better
@@ -165,13 +165,13 @@ AUC: 0.9691
 
 ## Discussion and Conclusions
 
-We are happy with the results of our model given the 1 week time constraint we were under. However, from reading the literature, using an optimiser with an adaptive leraning rate does not always give the best results. It does speed up the time to converge, but can also lead get trapped in local minima.
+We are happy with the results of our model given the 1 week time constraint we were under. However, from reading the literature, using an optimiser with an adaptive learning rate does not always give the best results. It does speed up the time to converge, but can also lead get trapped in local minima.
 
-Therefore, if we had more time and access to more powerful computers, we would use stochastic gradient descent with a very low learning rate (alpha ~ 0.0001) with learning decay rate of 10 epochs and run 100 epochs per model. 
+Therefore, if we had more time and access to more powerful computers, we would use stochastic gradient descent with a very low learning rate (alpha ~ 0.0001) with stepped learning decay and run 100 epochs per model. 
 
-In addition, we would like to train a multiclassfication model. The positive class has both viral and bacterial pneumonia cases. We understand tht bacterial cases are often more sever. Therefore we would like to indicate whether a particular infection is bacterial or viral.
+In addition, we would like to train a multiclassfication model. The positive class has both viral and bacterial pneumonia cases. We understand tht bacterial cases are often more severe. Therefore we would like to indicate whether a particular infection is bacterial or viral. Even if the classifier's accuracy drops, the possibility that false positives could be reduced by more accurately predicting healthy patients versus pneumonia, even if it's the incorrect type of pneumonia, would be an overall improvement.
 
-Finally, here we used wrote a soft voting classifier simililar to the scikit learn implementation in the future  we are interested in building a stacked classifier that uses backpropagation to assign weights to the output of each model in the classifir.
+Finally, here we used wrote a soft voting classifier simililar to the scikit learn implementation. In the future we are interested in building a stacked classifier that uses backpropagation to assign weights to the output of each model in the classifier.
 
 
 ## Repository Structure
