@@ -167,12 +167,19 @@ AUC: 0.9691
 
 We are happy with the results of our model given the 1 week time constraint we were under. However, from reading the literature, using an optimiser with an adaptive learning rate does not always give the best results. It does speed up the time to converge, but can also lead get trapped in local minima.
 
+<<<<<<< HEAD
 Therefore, if we had more time and access to more powerful computers, we would use stochastic gradient descent with a very low learning rate (alpha ~ 0.0001) with stepped learning decay and run 100 epochs per model. 
 
 In addition, we would like to train a multiclassfication model. The positive class has both viral and bacterial pneumonia cases. We understand tht bacterial cases are often more severe. Therefore we would like to indicate whether a particular infection is bacterial or viral. Even if the classifier's accuracy drops, the possibility that false positives could be reduced by more accurately predicting healthy patients versus pneumonia, even if it's the incorrect type of pneumonia, would be an overall improvement.
 
 Finally, here we used wrote a soft voting classifier simililar to the scikit learn implementation. In the future we are interested in building a stacked classifier that uses backpropagation to assign weights to the output of each model in the classifier.
+=======
+Therefore, if we had more time and access to more powerful computers, we would use stochastic gradient descent with a very low learning rate (alpha ~ 0.0001) with stepped learning decay and run 100 epochs per model.
 
+In addition, we would like to train a multiclassfication model. The positive class has both viral and bacterial pneumonia cases. We understand tht bacterial cases are often more severe. Therefore we would like to indicate whether a particular infection is bacterial or viral. Even if the classifier's accuracy drops, the possibility that false positives could be reduced by more accurately predicting healthy patients versus pneumonia, even if it's the incorrect type of pneumonia, would be an overall improvement.
+>>>>>>> b574469362797ecaf72c9665a435bdbeb04ab774
+
+Finally, here we used wrote a soft voting classifier simililar to the scikit learn implementation. In the future we are interested in building a stacked classifier that uses backpropagation to assign weights to the output of each model in the classifier.
 
 ## Repository Structure
 
