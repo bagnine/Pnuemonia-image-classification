@@ -18,7 +18,7 @@ Summary of key findings:
 
 - Recall: 0.9897
 
-- AUC: 0.8752
+- AUC: 0.9691
 
 ![img](./images/roccurve.png)
 
@@ -155,7 +155,7 @@ Accuracy: 0.9038
 
 Recall: 0.9897
 
-AUC: 0.8752
+AUC: 0.9691
 
 ![img](./images/ensemblecmatrix.png)
 
