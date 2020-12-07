@@ -65,17 +65,17 @@ We used an Adam classifer which uses an adaptive learning rate with stochastic g
 
 We created a convoluted neural network consisting of 8 alternating convolution and max pooling layers, followed by a flattening layer and 3 densely connected layers interspersed with regularization layers. Using our target metric- Recall- along with Accuracy and AUC we were able to tune our model to avoid over predicting pneumonia while still avoiding a potentially life-threatening false negative. 
 
-### VGG16: make it Alexnet, but better
+### VGG16: Make it AlexNet, but better
 ![img](./images/vgg16.png)
 
 
 image [source](https://neurohive.io/en/popular-networks/vgg16/)
 
 
-It's impossible for us to talk about image classfication tasks, particularly when it comes to transfer learning, without paying respect to Alexnet. Alexnet was really the first model that took advantage of GPU processing to implement a deep learning task. VGG16 replaces so of Alexnets enormous central kernel filters and replaces them with multiple streamlined 3x3 filters (see image). This model is a pain to train even with transfer learning due to it's size (with weights and nodes ~500mb). But yeilded amazing results in our use case.
+It's impossible for us to talk about image classfication tasks, particularly when it comes to transfer learning, without paying respect to AlexNet. AlexNet was really the first model that took advantage of GPU processing to implement a deep learning task. VGG16 replaces so of Alexnets enormous central kernel filters and replaces them with multiple streamlined 3x3 filters (see image). This model is a pain to train even with transfer learning due to it's size (with weights and nodes ~500mb). However, VGG16 yeilded amazing results in our use case.
 
 
-### Densenet Archetecture, an unconventional take on image classification.
+### Densenet121 Archetecture, an unconventional take on image classification.
 ![img](./images/densenet.png)
 
 image source: [Hashmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417)
@@ -109,8 +109,10 @@ AUC:
 
 Considering this model was unconventional for image classification we were surprised that it worked so efffectively in our use case:
 
-Accuracy
+Accuracy:
+
 Recall:
+
 AUC:
 
 ### MobileNetV2 
@@ -118,7 +120,9 @@ AUC:
 Our fastest model was less effective overall but could be deployed on older, less powerful computers so we were very pleased with the results:
 
 Accuracy:
+
 Recall:
+
 AUC
 
 ### Ensemble Voting Classfier
@@ -126,7 +130,9 @@ AUC
 We used soft voting between our three models and after experimenting, we optimised the probability threshold to be 0.65 from 0.5 which increased our accuracy to 0.90 from 0.87 and didn't decrease our recall.
 
 Accuracy:
+
 Recall:
+
 AUC:
 
 ![img](./images/ensemblecmatrix.png)
@@ -137,18 +143,25 @@ AUC:
 
 ## Discussion and Conclusions
 
-We are happy with the results of our model given the 1 week time constraint we were under. However, from reading the literature, using an 
+We are happy with the results of our model given the 1 week time constraint we were under. However, from reading the literature, using an optimiser with an adaptive leraning rate does not always give the best results. It does speed up the time to converge, but can also lead get trapped in local minima.
+
+Therefore, if we had more time and access to more powerful computers, we would use stochastic gradient descent with a very low learning rate (alpha ~ 0.0001). 
+
+In addition, we would like to train a multiclassfication model. The positive class has both viral and bacterial pneumonia cases. We understand tht bacterial cases are often more sever. Therefore we would like to indicate whether a particular infection is bacterial or viral.
+
+Finally, though here we used a voting classifier, we are interested in building a stacked classifier that uses backpropagation to assign weights to the output of each model in the classifir.
+
 
 ## Repository Structure
 
 ```
-├── Index.ipynb
-├── README.md
-├── images
-├── notebooks
-│   ├── EDA
-│   └── modelling
+├── Index.ipynb     | A complete walkthrough of our project, see also index.pdf
+├── README.md       |
+├── images          | Images used in this README
+├── notebooks       
+│   ├── EDA         | Exploratory Data Analysis
+│   └── modelling   | Model Prototyping 
 └── src
-    ├── data
-    └── modules
+    ├── data        | Image Data
+    └── modules     | Custom eda, preprocessing and graphing functions
 ```
