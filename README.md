@@ -163,6 +163,13 @@ AUC: 0.9691
 ![img](./images/roccurve.png)
 
 
+### Looking at False Negatives and False Positives:
+
+![img](./images/fp_fn_diff.png)
+
+
+We repeated some of the earlier EDA steps to try and figure out what why we were getting so many false positives. When we compare the difference between the two images we can see again the areas highlighted in red. These red areas indicate brighter regions within the lungs that were typical of the positive case. The cause for these blurred regions is unclear but could be due to movement during the x-ray procedures. 
+
 ## Discussion and Conclusions
 
 We are happy with the results of our model given the 1 week time constraint we were under. However, from reading the literature, using an optimiser with an adaptive learning rate does not always give the best results. It does speed up the time to converge, but can also lead get trapped in local minima. Therefore, if we had more time and access to more powerful computers, we would use stochastic gradient descent with a very low learning rate (alpha ~ 0.0001) with stepped learning decay and run 100 epochs per model. 
