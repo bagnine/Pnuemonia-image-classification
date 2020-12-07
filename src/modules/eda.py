@@ -5,10 +5,10 @@ from sklearn.decomposition import PCA
 from math import ceil
 import matplotlib.pyplot as plt
 
+size = (64,64)
 
 
-
-def image_to_matrix(path, list_of_filename, size = (64, 64)):
+def image_to_matrix(path, list_of_filename, size = (size)):
   
     # iterating through each file
     for fn in list_of_filename:
@@ -27,7 +27,7 @@ def image_to_matrix(path, list_of_filename, size = (64, 64)):
             full_mat = img_ts
     return full_mat
 
-def find_mean_img(full_mat, title, size = (64, 64), save_img=False, img_dir=None):
+def find_mean_img(full_mat, title, size = (size), save_img=False, img_dir=None):
     # calculate the average
     mean_img = np.mean(full_mat, axis = 0) 
     # reshape it back to a matrix
@@ -36,12 +36,12 @@ def find_mean_img(full_mat, title, size = (64, 64), save_img=False, img_dir=None
     plt.title(f'Average {title}')
     plt.axis('off')
     if save_img:
-        plt.savefig(img_PATH, bbox_inches='tight')
+        plt.savefig(img_dir, bbox_inches='tight')
     plt.show()
     return mean_img
 
 
-def find_var_img(full_mat, title, size = (64, 64), save_img=False, img_dir=None):
+def find_var_img(full_mat, title, size = (size), save_img=False, img_dir=None):
     # calculate the average
     std_img = (np.std(full_mat, axis = 0))**1.1
     # reshape it back to a matrix
@@ -50,12 +50,12 @@ def find_var_img(full_mat, title, size = (64, 64), save_img=False, img_dir=None)
     plt.title(f'Standard Deviation {title}')
     plt.axis('off')
     if save_img:
-        plt.savefig(img_PATH, bbox_inches='tight')
+        plt.savefig(img_dir, bbox_inches='tight')
     plt.show()
     return std_img
 
 
-def eigenimages(full_mat, title, n_comp = 0.6, size = (64, 64)):
+def eigenimages(full_mat, title, n_comp = 0.6, size = size):
     # fit PCA to describe n_comp * variability in the class
     pca = PCA(n_components = n_comp, whiten = True)
     pca.fit(full_mat)
