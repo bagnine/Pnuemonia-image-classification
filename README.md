@@ -46,7 +46,7 @@ We addressed class imbalance via image augmentation and weighting each class by 
 ![img](./images/classimbalance.png)
 
 
-Looking at 3 examples from each class, the differences are subtle. But we hope that by then end of this section you will be able to accurately identify pneumonia chest x-rays from normal ones. Pay close attention to the definition of the chest cavity in Normal images and the blurred lung area in pneumonia patients
+Looking at three examples from each class, the differences are subtle. But we hope that by then end of this section you will be able to accurately identify pneumonia chest x-rays from normal ones. Pay close attention to the definition of the chest cavity in Normal images and the blurred lung area in pneumonia patients
 
 ![img](./images/normVSpneu.png)
 
@@ -78,7 +78,7 @@ We created a convoluted neural network consisting of 8 alternating convolution a
 image [source](https://neurohive.io/en/popular-networks/vgg16/)
 
 
-It's impossible for us to talk about image classfication tasks, particularly when it comes to transfer learning, without paying respect to AlexNet. AlexNet was really the first model that took advantage of GPU processing to implement a deep learning task. VGG16 replaces so of Alexnets enormous central kernel filters and replaces them with multiple streamlined 3x3 filters (see image). This model is a pain to train even with transfer learning due to it's size (with weights and nodes ~500mb). However, VGG16 yeilded amazing results in our use case.
+It's impossible for us to talk about image classfication tasks, particularly when it comes to transfer learning, without paying respect to AlexNet. AlexNet was really the first model that took advantage of GPU processing to implement a deep learning task. VGG16 replaced Alexnets enormous central kernel filters with multiple streamlined 3x3 filters (see image). This model is a pain to train even with transfer learning due to it's size (with weights and nodes the model size was  ~500mb). However, VGG16 yeilded amazing results in our use case.
 
 
 ### Densenet121 Archetecture, an unconventional take on image classification.
@@ -90,7 +90,7 @@ image source: [Hashmi et al., 2020: Efficient Pneumonia Detection in Chest Xray 
 As we were learning about image classfication, we continuously read that convolutions were king. This made sense. A sliding filter that could pick out features in in the image via [convolutions](https://en.wikipedia.org/wiki/Convolution#Visual_explanation)l. However, we saw Densenet, an almost entriely densley connected network, outperform primarily convolutional neural networks. Indeed, in the present study, we found that of the three models we tested, Densenet121 performed the best. In light of the performance, we included in Densenet in our stacked classifier.
 
 
-### Mobilenet, a light weight multipurpose image recognition archetecture
+### Mobilenet, a light weight multipurpose image recognition architecture
 ![img](./images/mobilenet.png)
 
 
@@ -98,7 +98,7 @@ As we were learning about image classfication, we continuously read that convolu
 image source: [Hashmi et al., 2020: Efficient Pneumonia Detection in Chest Xray Images Using Deep Transfer Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345724/#app1-diagnostics-10-00417)
 
 
-MobilenetV2 ustilizes [depth-wise convolutions](https://medium.com/@zurister/depth-wise-convolution-and-depth-wise-separable-convolution-37346565d4ec) and linear bottlenecks between convolution blocks to maximise classification on RGB images. We selected this archetecture because it had previously been used very effectively in this classfication task, it took the same dimensional input as vgg16 and densenet121 but also it is very lightweight. Initially being designed to run on mobile devices, we wanted to use a model that, by itself could have accuracy, recall and also run on low powered computers.
+MobilenetV2 ustilizes [depth-wise convolutions](https://medium.com/@zurister/depth-wise-convolution-and-depth-wise-separable-convolution-37346565d4ec) and linear bottlenecks between convolution blocks to maximise classification on RGB images. We selected this architecture because it had previously been used effectively in this classfication task, it took the same dimensional input as VGG16 and DenseNet121 but also it is very lightweight. Initially being designed to run on mobile devices, we wanted to use a model that, by itself could have accuracy, recall and also run on low powered computers.
 
 
 ## Results
@@ -117,9 +117,9 @@ Auc: 0.8848
 
 Our homemade model had good recall but was far to sensitive. Having 122 false positives would do little to ease congestion of health care workers. The specificty of this model was 0.5. Since computing time was a limiting factor in our project, we set out to utilize pre trained models to improve our accuracy. 
 
-### Vgg16
+### VGG16
 
-Vgg16 was our largest model by far. It took 3x the time to converge. After regularizing the dense connections using dropout, we acheived:
+VGG16 was our largest model by far. It took 3x the time to converge. After regularizing the dense connections using dropout, we achieved:
 
 Accuracy: 0.8830
 
@@ -139,7 +139,7 @@ AUC: 0.9044
 
 ### MobileNetV2 
 
-Our fastest model was less effective overall but could be deployed on older, less powerful computers so we were very pleased with the results:
+Thogh MobileNetV2 was our fastest model to converge by far, it was less effective overall. However, it could be deployed on older, less powerful computers so we were very pleased with the results:
 
 Accuracy: 0.8814
 
@@ -149,7 +149,7 @@ AUC: 0.9485
 
 ### Ensemble Voting Classfier
 
-We used soft voting between our three models and after experimenting, we optimised the probability threshold to be 0.65 from 0.5 which increased our accuracy to 0.90 from 0.87 and didn't decrease our recall.
+We wrote our own soft voting classifier. After experimenting with classification thresholds, we optimised the probability threshold to be 0.65 from 0.5 which increased our accuracy to 0.90 from 0.87 and didn't decrease our recall.
 
 Accuracy: 0.9038
 
